@@ -34,9 +34,9 @@
         <a class="btn" id="goAdm" href="../ADMENSION/index.html">Open /ADMENSION</a>
       </div>
       <div class="card">
-        <h3>VALLIS Lore Wiki</h3>
-        <p class="mini">Comprehensive lore, entities, glyphs, and world-building documentation.</p>
-        <a class="btn" id="goLore" href="../VALLIS_Lore_Wiki_Site_v1 13/index.html">Open Lore Wiki</a>
+        <h3>VALLIS Ecosystem</h3>
+        <p class="mini">Governed liquidity platform with disclosed-odds minigames, ritual UX, and treasury progression.</p>
+        <a class="btn" id="goVallis" href="../ADMENSION/index.html?page=vallis">Open VALLIS</a>
       </div>
     </div>
 
@@ -44,12 +44,12 @@
       <div class="card">
         <h3>CoinFlip Game</h3>
         <p class="mini">VALLIS liquidity pool game — provably fair coin flip with crypto payouts.</p>
-        <a class="btn" id="goCoinFlip" href="../VALLIS_Liquidity/Pool_Games/CoinFlip/coinflip_docs 27/index.html">Open CoinFlip</a>
+        <a class="btn" id="goCoinFlip" href="../ADMENSION/VALLIS/games/coinflip/index.html">Open CoinFlip</a>
       </div>
       <div class="card">
-        <h3>VALLIS Docs</h3>
-        <p class="mini">Platform docs hub (games, treasury, receipts). Local path subject to change.</p>
-        <a class="btn" id="goVallis" href="../VALLIS_Liquidity_Docs_V3/index.html">Open /VALLIS</a>
+        <h3>VALLIS Docs &amp; Paper</h3>
+        <p class="mini">Full documentation hub with academic paper (Parts I-IV), game specs, and platform architecture.</p>
+        <a class="btn" id="goDocs" href="../ADMENSION/VALLIS/homepage.html">Open Docs Hub</a>
       </div>
     </div>
 
@@ -88,10 +88,11 @@
     // If explicit ?to= param, honor it; else route based on path hints or default to ADMENSION
     const to = (p.get('to')||'').toLowerCase();
     let target = '/ADMENSION/';
-    if(to==='vallis') target = '/VALLIS/';
-    if(to==='vallis-lore') target = '/VALLIS_Lore/';
-    if(to==='coinflip') target = '/CoinFlip/';
-    if(location.pathname.toLowerCase().includes('/vallis')) target = '/VALLIS/';
+    if(to==='vallis') target = '/ADMENSION/index.html?page=vallis';
+    if(to==='vallis-lore') target = '/ADMENSION/VALLIS/homepage.html';
+    if(to==='coinflip') target = '/ADMENSION/VALLIS/games/coinflip/index.html';
+    if(to==='docs') target = '/ADMENSION/VALLIS/homepage.html';
+    if(location.pathname.toLowerCase().includes('/vallis')) target = '/ADMENSION/index.html?page=vallis';
 
     // Persist params when redirecting
     function makeUrl(base){
@@ -127,9 +128,9 @@
 
     // Wire buttons
     document.getElementById('goAdm').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../ADMENSION/index.html'); };
-    document.getElementById('goVallis').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../VALLIS_Liquidity_Docs_V3/index.html'); };
-    document.getElementById('goLore').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../VALLIS_Lore_Wiki_Site_v1 13/index.html'); };
-    document.getElementById('goCoinFlip').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../VALLIS_Liquidity/Pool_Games/CoinFlip/coinflip_docs 27/index.html'); };
+    document.getElementById('goVallis').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../ADMENSION/index.html?page=vallis'); };
+    document.getElementById('goCoinFlip').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../ADMENSION/VALLIS/games/coinflip/index.html'); };
+    document.getElementById('goDocs').onclick = (e)=>{ e.preventDefault(); location.href = makeUrl('../ADMENSION/VALLIS/homepage.html'); };
   })();
   </script>
 </body>
