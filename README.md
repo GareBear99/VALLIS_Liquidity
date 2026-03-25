@@ -1,4 +1,4 @@
-# Root Site (garebear99.github.io)
+# Root Site (VALLIS Liquidity)
 
 This folder is a lightweight traffic hub for the VALLIS ecosystem + ADMENSION.
 
