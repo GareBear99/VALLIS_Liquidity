@@ -11,7 +11,9 @@
     <div id="msg">Resolving link…</div>
   </div>
   <script>
-    // Set collector URL if you want hub logging
+    // REQUIRED for short-link resolution: paste the ADMENSION Apps Script
+    // collector URL here. Without it every code shows "not configured" below.
+    // Hub logging alone does not need it.
     window.ADMENSION_COLLECTOR_URL = window.ADMENSION_COLLECTOR_URL || '';
   </script>
   <script>
@@ -19,6 +21,10 @@
     const path = location.pathname.split('/');
     const code = (path[path.length-1]||'').toUpperCase();
     const collector = window.ADMENSION_COLLECTOR_URL;
+    if (!collector) {
+      document.getElementById('msg').innerHTML = 'Link resolution is not configured yet — the ADMENSION collector URL has not been set. <a href="https://garebear99.github.io/VALLIS_Liquidity/" style="color:#8ab4ff">Go to the hub →</a>';
+      return;
+    }
     try{
       const u = new URL(collector);
       u.searchParams.set('code', code);
